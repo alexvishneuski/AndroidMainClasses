@@ -46,7 +46,7 @@
 
 
         <Button
-            android:id="@+id/go_to_login_button"
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
-            android:text="Suign up"></Button>
+            android:text="Sign up"></Button>
     </LinearLayout>
 
 

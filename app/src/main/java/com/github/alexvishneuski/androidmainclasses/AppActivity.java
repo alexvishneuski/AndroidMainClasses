@@ -1,32 +1,31 @@
 package com.github.alexvishneuski.androidmainclasses;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+
+public class AppActivity extends AppCompatActivity {
 
     public final String TAG = this.getClass().getSimpleName();
 
-    private Button mGoToLoginButton;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate");
-        mGoToLoginButton = (Button) findViewById(R.id.go_to_login_button);
-        mGoToLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                inte
-                startActivity(intent);
-            }
-        });
+
+    }
+
+    //Called when the activity has detected the user's press of the back key.
+    //Overridet to go direct to MainActivity (without visit LoginActivity)
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(AppActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
