@@ -15,9 +15,12 @@ import com.github.alexvishneuski.androidmainclasses.R;
 public class LoginActivity extends AppCompatActivity {
 
 
-    //static final String PRESSED_TIMES = "Pressed_times";
+    static final String LOGIN_BUTTON_PRESSED_TIMES = "loginButtonPressedTimes";
+    static final String SIGN_UP_BUTTON_PRESSED_TIMES = "signUpButtonPressedTimes";
 
     int mLoginButtonPressCounter = 0;//=Constants.LOGIN_BUTTON_PRESS_COUNTER;
+    int mSignUpButtonPressCounter = 0;
+
     public final String TAG = this.getClass().getSimpleName();
 
     //for log in
@@ -37,18 +40,26 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.d(TAG, "onCreate");
-
-        //2.2 obtaining of login button press count in onCreate
-        //try {
-       /* if (savedInstanceState != null) {
-            mLoginButtonPressCounter = savedInstanceState.getInt(PRESSED_TIMES);
-        } else mLoginButtonPressCounter = 0;*/
-        // } catch (NullPointerException e) {
-        //     //e.printStackTrace();
-        //     mLoginButtonPressCounter = 0;
-        // }
-
         initView();
+
+        //2.3 getting saved state approach 2: obtaining of sign up button press count in onCreate
+        if (savedInstanceState != null) {
+            mSignUpButtonPressCounter = savedInstanceState.getInt(SIGN_UP_BUTTON_PRESSED_TIMES);
+        } else mSignUpButtonPressCounter = 0;
+
+        //views setting
+        mSignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String toastPressCounter = String.format("\"SIGN UP\" Button was pressed %s times", String.valueOf(++mSignUpButtonPressCounter));
+
+                Toast.makeText(LoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, AppActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     private void initView() {
@@ -73,10 +84,11 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "onStart");
     }
 
+    //2.2 getting saved state approach 1: obtaining of login button press count in onRestoreInstanceState
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        mLoginButtonPressCounter = savedInstanceState.getInt("PRESSED_TIMES");
+        mLoginButtonPressCounter = savedInstanceState.getInt(LOGIN_BUTTON_PRESSED_TIMES);
         Log.d(TAG, "onRestoreInstanceState");
 
     }
@@ -106,11 +118,12 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "onPause");
     }
 
-    //2.1 save state through method onSaveInstanceState
+    //2.1 save state (login & sign up button press count) through method onSaveInstanceState
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("PRESSED_TIMES", mLoginButtonPressCounter);
+        outState.putInt(LOGIN_BUTTON_PRESSED_TIMES, mLoginButtonPressCounter);
+        outState.putInt(SIGN_UP_BUTTON_PRESSED_TIMES, mSignUpButtonPressCounter);
 
         Log.d(TAG, "onSaveInstanceState");
 
