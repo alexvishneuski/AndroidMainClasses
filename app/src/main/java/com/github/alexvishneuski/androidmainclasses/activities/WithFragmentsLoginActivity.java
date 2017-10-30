@@ -12,14 +12,7 @@ import android.widget.Toast;
 
 import com.github.alexvishneuski.androidmainclasses.R;
 
-public class LoginActivity extends AppCompatActivity {
-
-
-    static final String LOGIN_BUTTON_PRESSED_TIMES = "loginButtonPressedTimes";
-    static final String SIGN_UP_BUTTON_PRESSED_TIMES = "signUpButtonPressedTimes";
-
-    int mLoginButtonPressCounter = 0;//=Constants.LOGIN_BUTTON_PRESS_COUNTER;
-    int mSignUpButtonPressCounter = 0;
+public class WithFragmentsLoginActivity extends AppCompatActivity {
 
     public final String TAG = this.getClass().getSimpleName();
 
@@ -29,23 +22,15 @@ public class LoginActivity extends AppCompatActivity {
     private View mLoginButton;
 
     //for sign up
-    private EditText mInputNameForSignUpEditText;
-    private EditText mInputEmailForSignUpEditText;
-    private EditText mInputPasswordForSignUpText;
-    private View mSignUpButton;
+     private View mContinueButton;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_with_fragments);
         Log.d(TAG, "onCreate");
         initView();
-
-        //2.3 getting saved state approach 2: obtaining of sign up button press count in onCreate
-        if (savedInstanceState != null) {
-            mSignUpButtonPressCounter = savedInstanceState.getInt(SIGN_UP_BUTTON_PRESSED_TIMES);
-        } else mSignUpButtonPressCounter = 0;
 
         //views setting
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
@@ -53,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String toastPressCounter = String.format("\"SIGN UP\" Button was pressed %s times", String.valueOf(++mSignUpButtonPressCounter));
 
-                Toast.makeText(LoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(LoginActivity.this, AppActivity.class);
+                Toast.makeText(WithFragmentsLoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(WithFragmentsLoginActivity.this, AppActivity.class);
                 startActivity(intent);
 
             }
@@ -103,8 +88,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String toastPressCounter = String.format("\"LOG IN\" Button was pressed %s times", String.valueOf(++mLoginButtonPressCounter));
 
-                Toast.makeText(LoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(LoginActivity.this, AppActivity.class);
+                Toast.makeText(WithFragmentsLoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(WithFragmentsLoginActivity.this, AppActivity.class);
                 startActivity(intent);
 
 
@@ -117,19 +102,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onPause();
         Log.d(TAG, "onPause");
     }
-
-    //2.1 save state (login & sign up button press count) through method onSaveInstanceState
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(LOGIN_BUTTON_PRESSED_TIMES, mLoginButtonPressCounter);
-        outState.putInt(SIGN_UP_BUTTON_PRESSED_TIMES, mSignUpButtonPressCounter);
-
-        Log.d(TAG, "onSaveInstanceState");
-
-
-    }
-
 
     @Override
     protected void onStop() {

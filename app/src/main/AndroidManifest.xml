@@ -14,10 +14,18 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity android:name=".activities.LoginActivity"/>
         <activity android:name=".activities.AppActivity"/>
+        <activity android:name=".activities.InStackUnsavedActivity"/>
+        <activity android:name=".activities.WithResultActivity"/>
+        <activity android:name=".activities.WithFragmentsLoginActivity"/>
+
+
+
+
     </application>
 
 </manifest>

@@ -54,63 +54,20 @@
             android:text="Log in"></Button>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sign_up_linear_layout"
+    <Button
+        android:id="@+id/continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10pt"
-        android:layout_marginRight="10pt"
-        android:layout_marginTop="10pt"
-        android:orientation="vertical">
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:text="Continue"></Button>
+    <FrameLayout
 
-        <TextView
-            android:id="@+id/sign_up_linear_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:gravity="center_horizontal"
-            android:text="New to App?"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+        android:id="@+id/in_with_fragment_activity_frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <EditText
-            android:id="@+id/input_full_name_for_sign_up_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:gravity="center_horizontal"
-            android:hint="Full name"></EditText>
-
-        <EditText
-            android:id="@+id/input_email_for_sign_up_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:gravity="center_horizontal"
-            android:hint="Email"></EditText>
-
-        <EditText
-            android:id="@+id/input_password_for_sign_up_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:gravity="center_horizontal"
-            android:hint="Password"></EditText>
-
-
-        <Button
-            android:id="@+id/sign_up_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:text="Sign up"></Button>
-    </LinearLayout>
+        />
 
 
 </LinearLayout>

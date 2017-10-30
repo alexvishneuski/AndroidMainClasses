@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    tools:context="com.github.alexvishneuski.androidmainclasses.activities.WithResultActivity">
+
+    <EditText
+        android:id="@+id/input_name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:gravity="center_horizontal"
+        android:hint="Enter you name"></EditText>
+
+    <Button
+        android:id="@+id/return_result_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:gravity="center_horizontal"
+        android:text="Return name" />
+</LinearLayout>

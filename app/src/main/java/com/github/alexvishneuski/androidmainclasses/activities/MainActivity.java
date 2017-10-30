@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.github.alexvishneuski.androidmainclasses.R;
 
@@ -14,13 +15,19 @@ public class MainActivity extends AppCompatActivity {
     public final String TAG = this.getClass().getSimpleName();
 
     private Button mGoToLoginButton;
+    private Button mGoToInStackUnsavedActivityButton;
+    private Button mStartActivityForResultButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate");
+
         mGoToLoginButton = (Button) findViewById(R.id.go_to_login_button);
+        mGoToInStackUnsavedActivityButton = (Button) findViewById(R.id.go_to_in_stack_unsaved_activity_button);
+        mStartActivityForResultButton = (Button) findViewById(R.id.start_activity_for_result_button);
+
         mGoToLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +37,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mGoToInStackUnsavedActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, InStackUnsavedActivity.class);
+                //Case #1.2
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+            }
+        });
+        //case 3
+        mStartActivityForResultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WithResultActivity.class);
+
+                startActivityForResult(intent, 1);
+            }
+        });
+
+    }
+
+    //case 3
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data == null) {return;}
+        String message = String.format("Your name is %s",data.getStringExtra("name"));
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -7,7 +7,19 @@
 
     <Button
         android:id="@+id/go_to_login_button"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="go to login" />
+        android:text="Go to login" />
+
+    <Button
+        android:id="@+id/go_to_in_stack_unsaved_activity_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to in stack unsaved activity" />
+
+    <Button
+        android:id="@+id/start_activity_for_result_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start activity for result: get name" />
 </LinearLayout>
