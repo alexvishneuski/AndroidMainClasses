@@ -1,5 +1,7 @@
 package com.github.alexvishneuski.androidmainclasses.activities;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.github.alexvishneuski.androidmainclasses.R;
+import com.github.alexvishneuski.androidmainclasses.fragments.ContinueFragment;
+import com.github.alexvishneuski.androidmainclasses.fragments.LoginFragment;
 
 public class WithFragmentsLoginActivity extends AppCompatActivity {
 
@@ -22,7 +26,7 @@ public class WithFragmentsLoginActivity extends AppCompatActivity {
     private View mLoginButton;
 
     //for sign up
-     private View mContinueButton;
+    private View mContinueButton;
 
 
     @Override
@@ -32,18 +36,7 @@ public class WithFragmentsLoginActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate");
         initView();
 
-        //views setting
-        mSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String toastPressCounter = String.format("\"SIGN UP\" Button was pressed %s times", String.valueOf(++mSignUpButtonPressCounter));
 
-                Toast.makeText(WithFragmentsLoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(WithFragmentsLoginActivity.this, AppActivity.class);
-                startActivity(intent);
-
-            }
-        });
 
     }
 
@@ -54,12 +47,46 @@ public class WithFragmentsLoginActivity extends AppCompatActivity {
         mInputPasswordText = (EditText) findViewById(R.id.input_password_for_login_edit_text);
         mLoginButton = (Button) findViewById(R.id.login_button);
 
-        mInputNameForSignUpEditText = (EditText) findViewById(R.id.input_full_name_for_sign_up_edit_text);
-        mInputEmailForSignUpEditText = (EditText) findViewById(R.id.input_email_for_sign_up_edit_text);
-        mInputPasswordForSignUpText = (EditText) findViewById(R.id.input_email_for_sign_up_edit_text);
-        mSignUpButton = (Button) findViewById(R.id.sign_up_button);
+        mContinueButton = (Button) findViewById(R.id.continue_button);
+
+        initActions();
+    }
+
+    private void initActions() {
+        //views setting
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WithFragmentsLoginActivity.this, AppActivity.class);
+                startActivity(intent);
 
 
+            }
+        });
+
+        mContinueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String toastPressCounter = String.format("\"SIGN UP\" Button was pressed %s times", "");
+
+                Toast.makeText(WithFragmentsLoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(WithFragmentsLoginActivity.this, AppActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        showFragmentWithReplace(new Fragment());
+    }
+
+    public void getNewFragmentwithReplace() {
+        showFragmentWithReplace(new ContinueFragment());
+    }
+
+    private void showFragmentWithReplace(Fragment fragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.in_with_fragment_activity_frame_container, fragment);
+        transaction.commit();
     }
 
 
@@ -69,32 +96,11 @@ public class WithFragmentsLoginActivity extends AppCompatActivity {
         Log.d(TAG, "onStart");
     }
 
-    //2.2 getting saved state approach 1: obtaining of login button press count in onRestoreInstanceState
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        mLoginButtonPressCounter = savedInstanceState.getInt(LOGIN_BUTTON_PRESSED_TIMES);
-        Log.d(TAG, "onRestoreInstanceState");
-
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
         Log.d(TAG, "onResume");
-        //views setting
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String toastPressCounter = String.format("\"LOG IN\" Button was pressed %s times", String.valueOf(++mLoginButtonPressCounter));
 
-                Toast.makeText(WithFragmentsLoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(WithFragmentsLoginActivity.this, AppActivity.class);
-                startActivity(intent);
-
-
-            }
-        });
     }
 
     @Override
@@ -120,4 +126,6 @@ public class WithFragmentsLoginActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
     }
+
+
 }

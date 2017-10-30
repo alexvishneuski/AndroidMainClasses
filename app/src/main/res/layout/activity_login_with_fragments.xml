@@ -52,22 +52,25 @@
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
             android:text="Log in"></Button>
+
+        <Button
+            android:id="@+id/continue_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:text="Continue"></Button>
+
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/continue_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5pt"
-        android:layout_marginRight="5pt"
-        android:text="Continue"></Button>
     <FrameLayout
 
         android:id="@+id/in_with_fragment_activity_frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-        />
+    />
 
 
 </LinearLayout>
