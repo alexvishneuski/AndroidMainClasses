@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    tools:context="com.github.alexvishneuski.androidmainclasses.LoginActivity">
+    tools:context="com.github.alexvishneuski.androidmainclasses.activities.LoginActivity">
 
     <LinearLayout
         android:id="@+id/log_in_linear_layout"

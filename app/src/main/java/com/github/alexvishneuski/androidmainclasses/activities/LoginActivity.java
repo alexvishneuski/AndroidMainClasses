@@ -1,15 +1,23 @@
-package com.github.alexvishneuski.androidmainclasses;
+package com.github.alexvishneuski.androidmainclasses.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.github.alexvishneuski.androidmainclasses.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    //static final String PRESSED_TIMES = "Pressed_times";
+
+    int mLoginButtonPressCounter = 0;//=Constants.LOGIN_BUTTON_PRESS_COUNTER;
     public final String TAG = this.getClass().getSimpleName();
 
     //for log in
@@ -25,12 +33,22 @@ public class LoginActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.d(TAG, "onCreate");
-        initView();
 
+        //2.2 obtaining of login button press count in onCreate
+        //try {
+       /* if (savedInstanceState != null) {
+            mLoginButtonPressCounter = savedInstanceState.getInt(PRESSED_TIMES);
+        } else mLoginButtonPressCounter = 0;*/
+        // } catch (NullPointerException e) {
+        //     //e.printStackTrace();
+        //     mLoginButtonPressCounter = 0;
+        // }
+
+        initView();
     }
 
     private void initView() {
@@ -45,14 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         mInputPasswordForSignUpText = (EditText) findViewById(R.id.input_password_edit_text);
         mSignUpButton = (Button) findViewById(R.id.sign_up_button);
 
-        //views setting
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, AppActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -64,16 +74,49 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mLoginButtonPressCounter = savedInstanceState.getInt("PRESSED_TIMES");
+        Log.d(TAG, "onRestoreInstanceState");
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         Log.d(TAG, "onResume");
+        //views setting
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String toastPressCounter = String.format("\"LOG IN\" Button was pressed %s times", String.valueOf(++mLoginButtonPressCounter));
+
+                Toast.makeText(LoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LoginActivity.this, AppActivity.class);
+                startActivity(intent);
+
+
+            }
+        });
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPayse");
+        Log.d(TAG, "onPause");
     }
+
+    //2.1 save state through method onSaveInstanceState
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("PRESSED_TIMES", mLoginButtonPressCounter);
+
+        Log.d(TAG, "onSaveInstanceState");
+
+
+    }
+
 
     @Override
     protected void onStop() {

@@ -1,4 +1,4 @@
-package com.github.alexvishneuski.androidmainclasses;
+package com.github.alexvishneuski.androidmainclasses.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +16,11 @@ public class AppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
 
+
+
     }
 
+  /*  //Case #1.1
     //Called when the activity has detected the user's press of the back key.
     //Overridet to go direct to MainActivity (without visit LoginActivity)
     @Override
@@ -26,7 +29,7 @@ public class AppActivity extends AppCompatActivity {
         Intent intent = new Intent(AppActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
+    }*/
 
     @Override
     protected void onStart() {
@@ -43,7 +46,7 @@ public class AppActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPayse");
+        Log.d(TAG, "onPause");
     }
 
     @Override

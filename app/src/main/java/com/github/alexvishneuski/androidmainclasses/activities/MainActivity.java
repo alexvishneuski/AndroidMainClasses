@@ -1,4 +1,4 @@
-package com.github.alexvishneuski.androidmainclasses;
+package com.github.alexvishneuski.androidmainclasses.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.github.alexvishneuski.androidmainclasses.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                inte
+                //Case #1.2
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPayse");
+        Log.d(TAG, "onPause");
     }
 
     @Override
