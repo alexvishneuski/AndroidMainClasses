@@ -8,17 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.alexvishneuski.androidmainclasses.R;
+import com.github.alexvishneuski.androidmainclasses.activities.WithFragmentsLoginActivity;
+
+
 /**
  * Created by Asus on 30.10.2017.
  */
 
-public class ContinueFragment extends Fragment {
+public class PreLoginFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_continue, null);
-
+        return inflater.inflate(R.layout.fragment_pre_login, null);
 
     }
-}
 
+
+
+
+
+}

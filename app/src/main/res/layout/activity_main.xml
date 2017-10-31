@@ -12,6 +12,12 @@
         android:text="Go to login" />
 
     <Button
+        android:id="@+id/go_to_login_with_fragment_activity_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to login with fragments" />
+
+    <Button
         android:id="@+id/go_to_in_stack_unsaved_activity_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

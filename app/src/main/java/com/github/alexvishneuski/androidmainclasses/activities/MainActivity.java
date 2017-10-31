@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mGoToLoginButton;
     private Button mGoToInStackUnsavedActivityButton;
     private Button mStartActivityForResultButton;
+    private Button mGoToLoginWithFragmentsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mGoToLoginButton = (Button) findViewById(R.id.go_to_login_button);
         mGoToInStackUnsavedActivityButton = (Button) findViewById(R.id.go_to_in_stack_unsaved_activity_button);
         mStartActivityForResultButton = (Button) findViewById(R.id.start_activity_for_result_button);
+        mGoToLoginWithFragmentsButton = (Button) findViewById(R.id.go_to_login_with_fragment_activity_button);
 
         mGoToLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +58,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+        mGoToLoginWithFragmentsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WithFragmentsLoginActivity.class);
 
+                startActivity(intent);
+            }
+        });
     }
 
     //case 3

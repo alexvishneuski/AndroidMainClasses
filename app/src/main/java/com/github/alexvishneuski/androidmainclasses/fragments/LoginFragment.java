@@ -16,15 +16,15 @@ import com.github.alexvishneuski.androidmainclasses.activities.WithFragmentsLogi
  */
 
 public class LoginFragment extends Fragment {
-
+    private int remindPasswordPanelFrameContainer = R.id.remind_password_panel_frame_container;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, null);
-        view.findViewById(R.id.continue_with_replace_button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.show_remind_password_panel_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((WithFragmentsLoginActivity)getActivity()).getNewFragmentwithReplace();
+                ((WithFragmentsLoginActivity)getActivity()).showFragmentWithAdd(remindPasswordPanelFrameContainer, new RemindPasswordFragment());
             }
         });
 

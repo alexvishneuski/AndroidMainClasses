@@ -4,18 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/login_fragment_text_view"
+    <LinearLayout
+        android:id="@+id/log_in_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is LoginFragment. You can continue with replace..."
-        android:gravity="center"/>
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt"
+        android:layout_marginTop="10pt"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/continue_with_replace_button"
+        <EditText
+            android:id="@+id/input_name_for_login_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:gravity="center_horizontal"
+            android:hint="Phone, email or username"></EditText>
+
+        <EditText
+            android:id="@+id/input_password_for_login_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:gravity="center_horizontal"
+            android:hint="Password"></EditText>
+
+
+        <Button
+        android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue with replace ..."/>
-        <!--android:onClick="onCalculate" -->
+        android:layout_marginLeft="5pt"
+        android:layout_marginRight="5pt"
+        android:text="Log in"></Button>
+
+        <Button
+            android:id="@+id/show_remind_password_panel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:text="Show remind password panel"></Button>
+
+
+
+    </LinearLayout>
+
+
+
+
 
 </LinearLayout>
