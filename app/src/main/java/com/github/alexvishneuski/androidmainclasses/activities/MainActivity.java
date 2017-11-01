@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mGoToInStackUnsavedActivityButton;
     private Button mStartActivityForResultButton;
     private Button mGoToLoginWithFragmentsButton;
-    private Button mStartIntentServiceAndCatchResultThroughManifestResciverButton;
-    private Button mStartIntentServiceAndCatchResultThroughInActivityImplementedResciverButton;
+    private Button mStartIntentServiceAndReceiveResultButton;
+    private BroadcastReceiver mReceiver;
+    private IntentFilter mIntentFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mGoToInStackUnsavedActivityButton = (Button) findViewById(R.id.go_to_in_stack_unsaved_activity_button);
         mStartActivityForResultButton = (Button) findViewById(R.id.start_activity_for_result_button);
         mGoToLoginWithFragmentsButton = (Button) findViewById(R.id.go_to_login_with_fragment_activity_button);
-        mStartIntentServiceAndCatchResultThroughManifestResciverButton = (Button) findViewById(R.id.start_intent_service_and_catch_result_throuth_manifest_receiver_button);
-        mStartIntentServiceAndCatchResultThroughInActivityImplementedResciverButton = (Button) findViewById(R.id.start_intent_service_and_catch_result_throuth_in_activity_implemented_receiver_button);
+        mStartIntentServiceAndReceiveResultButton = (Button) findViewById(R.id.send_message_to_service_and_receive_result_button);
 
         mGoToLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,18 +77,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mStartIntentServiceAndCatchResultThroughManifestResciverButton.setOnClickListener(new View.OnClickListener() {
+        mStartIntentServiceAndReceiveResultButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MyIntentService.class);
-                intent.putExtra(Constants.INPUT_MESSAGE, "send to MyIntentService");
+                intent.putExtra(Constants.TO_SERVICE_MESSAGE, "send to MyIntentService");
 
                 startService(intent);
-                Toast.makeText(MainActivity.this, "send to MyIntentService", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "send from MainActivity to MyIntentService", Toast.LENGTH_SHORT).show();
             }
         });
 
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d(TAG, "onReceive");
+                String resultText = intent.getStringExtra(Constants.FROM_SERVICE_MESSAGE);
+                Log.d(TAG, "onReceive" + resultText);
+                Toast.makeText(MainActivity.this, resultText, Toast.LENGTH_SHORT).show();
+            }
+        };
 
+
+        registerReceiver();
+
+    }
+
+    private Intent registerReceiver() {
+        mIntentFilter = new IntentFilter(Constants.ACTION);
+        return registerReceiver(mReceiver, mIntentFilter);
     }
 
 
@@ -103,14 +120,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "onReceive");
-            String resultText =intent.getStringExtra(Constants.INPUT_MESSAGE);
-            Toast.makeText(MainActivity.this, resultText, Toast.LENGTH_SHORT).show();
-        }
-    };
 
     @Override
     protected void onStart() {
@@ -122,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(TAG, "onResume");
-        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter(Constants.ACTION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter(Constants.ACTION));
     }
 
     @Override
@@ -146,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy");
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver);
         super.onDestroy();
 
     }

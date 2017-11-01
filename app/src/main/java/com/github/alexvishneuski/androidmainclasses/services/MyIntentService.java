@@ -4,35 +4,29 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.github.alexvishneuski.androidmainclasses.Constants;
-import com.github.alexvishneuski.androidmainclasses.activities.LoginActivity;
 
 public class MyIntentService extends IntentService {
 
     public final String TAG = this.getClass().getSimpleName();
 
     public MyIntentService() {
-        super("FromLowerToUpperCaseApp");
+        super("changeMessageService");
     }
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.d(TAG, "onHandleIntent");
 
-        String message = intent.getStringExtra(Constants.INPUT_MESSAGE);
+        String message = intent.getStringExtra(Constants.TO_SERVICE_MESSAGE);
+        Log.d(TAG, "message before change: " + message);
+        message = "send from MyIntentService to MainActivity";
+        Log.d(TAG, "message after change: " + message);
 
-
-        message = message.toUpperCase();
-
-
-        System.out.println(message);
         Intent resultIntent = new Intent();
         resultIntent.setAction(Constants.ACTION);
-        resultIntent.addCategory(Intent.CATEGORY_DEFAULT);
-        resultIntent.putExtra(Constants.OUTPUT_MESSAGE, message);
-
+        resultIntent.putExtra(Constants.FROM_SERVICE_MESSAGE, message);
         sendBroadcast(resultIntent);
     }
 
