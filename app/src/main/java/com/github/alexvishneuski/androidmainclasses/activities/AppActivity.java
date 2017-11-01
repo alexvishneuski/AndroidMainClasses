@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.github.alexvishneuski.androidmainclasses.R;
+
 
 public class AppActivity extends AppCompatActivity {
 
@@ -15,6 +17,7 @@ public class AppActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
+        setContentView(R.layout.activity_app);
 
 
 

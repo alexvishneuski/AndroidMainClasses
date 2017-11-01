@@ -27,5 +27,6 @@ in MainActivity through  mStartActivityForResultButton go to WithResultActivity,
 there we input some name and on click return to  MainActivity and get Toast with this name
 used:   in MainActivity: startActivityForResult(), getStringExtra() and onActivityResult()
         in WithResultActivity: intent.putExtra, setResult()
+
 TODO 3.1: to apply startActivityForResult for logging(after input password and name and return this data to MainActivity. There to compare with some final data, in ok case to continue to appActivity)
 like in training-project

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:id="@+id/log_in_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10pt"
         android:layout_marginRight="10pt"
         android:layout_marginTop="10pt"
-        android:orientation="vertical">
+        android:orientation="vertical">-->
 
         <EditText
             android:id="@+id/input_name_for_login_edit_text"
@@ -20,7 +20,7 @@
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
             android:gravity="center_horizontal"
-            android:hint="Phone, email or username"></EditText>
+            android:hint="Phone, email or username"/>
 
         <EditText
             android:id="@+id/input_password_for_login_edit_text"
@@ -29,16 +29,16 @@
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
             android:gravity="center_horizontal"
-            android:hint="Password"></EditText>
+            android:hint="Password"/>
 
 
         <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5pt"
-        android:layout_marginRight="5pt"
-        android:text="Log in"></Button>
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:text="Log in"/>
 
         <Button
             android:id="@+id/show_remind_password_panel_button"
@@ -46,14 +46,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
-            android:text="Show remind password panel"></Button>
+            android:text="Show remind password panel"/>
+        <Button
+            android:id="@+id/hide_remind_password_panel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:text="Hide remind password panel"/>
 
-
-
-    </LinearLayout>
-
-
-
+    <!--</LinearLayout>-->
 
 
 </LinearLayout>

@@ -56,10 +56,8 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LoginActivity.this, AppActivity.class);
                 startActivity(intent);
-
             }
         });
-
     }
 
     private void initView() {
@@ -73,8 +71,6 @@ public class LoginActivity extends AppCompatActivity {
         mInputEmailForSignUpEditText = (EditText) findViewById(R.id.input_email_for_sign_up_edit_text);
         mInputPasswordForSignUpText = (EditText) findViewById(R.id.input_email_for_sign_up_edit_text);
         mSignUpButton = (Button) findViewById(R.id.sign_up_button);
-
-
     }
 
 
@@ -90,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         mLoginButtonPressCounter = savedInstanceState.getInt(LOGIN_BUTTON_PRESSED_TIMES);
         Log.d(TAG, "onRestoreInstanceState");
-
     }
 
     @Override
@@ -106,8 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, toastPressCounter, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LoginActivity.this, AppActivity.class);
                 startActivity(intent);
-
-
             }
         });
     }
@@ -126,8 +119,6 @@ public class LoginActivity extends AppCompatActivity {
         outState.putInt(SIGN_UP_BUTTON_PRESSED_TIMES, mSignUpButtonPressCounter);
 
         Log.d(TAG, "onSaveInstanceState");
-
-
     }
 
 
