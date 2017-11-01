@@ -4,14 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-   <!-- <LinearLayout
-        android:id="@+id/log_in_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10pt"
-        android:layout_marginRight="10pt"
-        android:layout_marginTop="10pt"
-        android:orientation="vertical">-->
+
 
         <EditText
             android:id="@+id/input_name_for_login_edit_text"
@@ -20,7 +13,7 @@
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
             android:gravity="center_horizontal"
-            android:hint="Phone, email or username"/>
+            android:hint="@string/phone_email_or_username"/>
 
         <EditText
             android:id="@+id/input_password_for_login_edit_text"
@@ -29,7 +22,7 @@
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
             android:gravity="center_horizontal"
-            android:hint="Password"/>
+            android:hint="@string/password"/>
 
 
         <Button
@@ -38,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
-            android:text="Log in"/>
+            android:text="@string/log_in"/>
 
         <Button
             android:id="@+id/show_remind_password_panel_button"
@@ -46,16 +39,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
-            android:text="Show remind password panel"/>
+            android:text="@string/show_remind_password_panel"/>
         <Button
             android:id="@+id/hide_remind_password_panel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
-            android:text="Hide remind password panel"/>
+            android:text="@string/hide_remind_password_panel"/>
 
-    <!--</LinearLayout>-->
+
 
 
 </LinearLayout>

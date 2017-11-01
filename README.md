@@ -30,3 +30,7 @@ used:   in MainActivity: startActivityForResult(), getStringExtra() and onActivi
 
 TODO 3.1: to apply startActivityForResult for logging(after input password and name and return this data to MainActivity. There to compare with some final data, in ok case to continue to appActivity)
 like in training-project
+
+
+
+

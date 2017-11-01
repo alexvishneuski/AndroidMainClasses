@@ -12,7 +12,7 @@
         android:layout_marginLeft="5pt"
         android:layout_marginRight="5pt"
         android:gravity="center_horizontal"
-        android:hint="Enter you name"></EditText>
+        android:hint="@string/enter_you_name"/>
 
     <Button
         android:id="@+id/return_result_button"
@@ -21,5 +21,5 @@
         android:layout_marginLeft="5pt"
         android:layout_marginRight="5pt"
         android:gravity="center_horizontal"
-        android:text="Return name" />
+        android:text="@string/return_name" />
 </LinearLayout>

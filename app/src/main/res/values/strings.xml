@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">AndroidMainClasses</string>
+    <string name="full_name">Full name</string>
+    <string name="sign_up">Sign up</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log in</string>
+    <string name="phone_email_or_username">Phone, email or username</string>
+    <string name="new_to_app">New to App?</string>
+    <string name="go_to_app">go to app</string>
+    <string name="show_log_in_panel">Show log in panel</string>
+    <string name="go_to_login">Go to login</string>
+    <string name="go_to_login_with_fragments">Go to login with fragments</string>
+    <string name="start_activity_for_result_get_name">Start activity for result: get name</string>
+    <string name="go_to_in_stack_unsaved_activity">Go to in stack unsaved activity</string>
+    <string name="send_message_to_service_and_receive_result">Send message to service and receive result</string>
+    <string name="return_name">Return name</string>
+    <string name="enter_you_name">Enter you name</string>
+    <string name="show_remind_password_panel">Show remind password panel</string>
+    <string name="hide_remind_password_panel">Hide remind password panel</string>
+    <string name="remind_password">Remind password</string>
+    <string name="appactivity">appactivity</string>
 </resources>

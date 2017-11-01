@@ -21,29 +21,11 @@
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
             android:gravity="center_horizontal"
-            android:text="Log in"
+            android:text="@string/log_in"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
-      <!--  <EditText
-            android:id="@+id/input_name_for_login_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:gravity="center_horizontal"
-            android:hint="Phone, email or username"></EditText>
-
-        <EditText
-            android:id="@+id/input_password_for_login_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5pt"
-            android:layout_marginRight="5pt"
-            android:gravity="center_horizontal"
-            android:hint="Password"></EditText>
--->
 
         <Button
             android:id="@+id/show_login_panel_button"
@@ -51,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5pt"
             android:layout_marginRight="5pt"
-            android:text="Show log in panel"></Button>
+            android:text="@string/show_log_in_panel"/>
 
 
 
