@@ -33,4 +33,5 @@ like in training-project
 
 
 
-
+Link to HW task's navigator
+https://github.com/alexvishneuski/AndroidMainClasses/blob/master/app/src/main/res/drawable/tascNavigator.jpg
