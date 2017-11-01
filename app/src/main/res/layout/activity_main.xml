@@ -28,4 +28,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start activity for result: get name" />
+    <Button
+        android:id="@+id/start_intent_service_and_catch_result_throuth_manifest_receiver_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start intentService-> catch result through manifest receiver" />
+
+    <Button
+        android:id="@+id/start_intent_service_and_catch_result_throuth_in_activity_implemented_receiver_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start intentService-> catch result through in activity implemented receiver" />
+
+
+
 </LinearLayout>
