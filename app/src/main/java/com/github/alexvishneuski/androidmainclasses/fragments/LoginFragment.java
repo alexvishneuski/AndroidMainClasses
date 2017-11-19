@@ -17,28 +17,31 @@ import com.github.alexvishneuski.androidmainclasses.activities.WithFragmentsLogi
 
 public class LoginFragment extends Fragment {
 
-    private int remindPasswordPanelFrameContainer = R.id.remind_password_panel_frame_container;
-    RemindPasswordFragment remindFragment;
+    /*creating links to members*/
+    private int mRemindPasswordPanelFrameContainer = R.id.remind_password_panel_frame_container;
+    RemindPasswordFragment mRemindFragment;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
 
-
+/*creating LoginFragment*/
         View view = inflater.inflate(R.layout.fragment_login, null);
 
+        /*searching of button 'show RP panel'*/
         view.findViewById(R.id.show_remind_password_panel_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remindFragment = new RemindPasswordFragment();
-                ((WithFragmentsLoginActivity) getActivity()).showFragment(remindPasswordPanelFrameContainer, remindFragment);
+                mRemindFragment = new RemindPasswordFragment();
+                ((WithFragmentsLoginActivity) getActivity()).showFragment(mRemindPasswordPanelFrameContainer, mRemindFragment);
             }
         });
+        /*searching of button 'hide RP panel'*/
         view.findViewById(R.id.hide_remind_password_panel_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((WithFragmentsLoginActivity) getActivity()).hideFragment(remindFragment);
+                ((WithFragmentsLoginActivity) getActivity()).hideFragment(mRemindFragment);
             }
         });
         return view;

@@ -13,6 +13,8 @@ import com.github.alexvishneuski.androidmainclasses.R;
  */
 
 public class RemindPasswordFragment extends Fragment {
+
+    /*creating a RemindPasswordFragment*/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
